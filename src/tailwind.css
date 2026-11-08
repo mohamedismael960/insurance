@@ -1,0 +1,15 @@
+@layer theme, base, primeng, utilities;
+
+@import 'tailwindcss';
+
+@theme inline {
+  --color-canvas: var(--app-bg);
+  --color-panel: var(--app-surface);
+  --color-ink: var(--app-ink);
+  --color-muted: var(--app-muted);
+  --color-line: var(--app-line);
+  --color-accent: var(--app-accent);
+  --color-accent-soft: var(--app-accent-soft);
+  --font-sans: 'Segoe UI', system-ui, sans-serif;
+  --shadow-panel: var(--app-shadow);
+}

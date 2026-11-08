@@ -1,0 +1,13 @@
+<div class="grid justify-items-start gap-3" role="alert">
+  <div class="grid gap-1">
+    <p class="font-medium">{{ title() }}</p>
+    <p class="text-sm text-muted">{{ message() }}</p>
+  </div>
+  <button
+    type="button"
+    class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white"
+    (click)="retry.emit()"
+  >
+    Retry
+  </button>
+</div>

@@ -1,0 +1,27 @@
+.loader-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  border-radius: inherit;
+  background: rgb(255 255 255 / 72%);
+  backdrop-filter: blur(2px);
+}
+
+:host ::ng-deep .loader-overlay .p-progressspinner {
+  width: 36px;
+  height: 36px;
+}
+
+:host ::ng-deep .loader-overlay .p-progressspinner::before {
+  display: none;
+  padding-top: 0;
+}
+
+:host ::ng-deep .loader-overlay .p-progressspinner-circle {
+  stroke: var(--app-accent) !important;
+  animation: p-progressspinner-dash 1.5s ease-in-out infinite !important;
+}

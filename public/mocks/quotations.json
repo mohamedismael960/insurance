@@ -1,0 +1,66 @@
+[
+  {
+    "id": "Q-10021",
+    "customerName": "Nora Al-Harbi",
+    "insuranceCompany": "Tawuniya",
+    "premiumAmount": 2400,
+    "deductibleAmount": 500,
+    "status": "Available"
+  },
+  {
+    "id": "Q-10022",
+    "customerName": "Nora Al-Saud",
+    "insuranceCompany": "Bupa Arabia",
+    "premiumAmount": 3100,
+    "deductibleAmount": 0,
+    "status": "Available"
+  },
+  {
+    "id": "Q-10048",
+    "customerName": "Faisal Al-Otaibi",
+    "insuranceCompany": "MedGulf",
+    "premiumAmount": 1850,
+    "deductibleAmount": 1000,
+    "status": "Expired"
+  },
+  {
+    "id": "Q-10110",
+    "customerName": "Sara Al-Qahtani",
+    "insuranceCompany": "Malath",
+    "premiumAmount": 4200,
+    "deductibleAmount": 250,
+    "status": "Available"
+  },
+  {
+    "id": "Q-10111",
+    "customerName": "Sara Al-Mutairi",
+    "insuranceCompany": "Walaa",
+    "premiumAmount": 2750,
+    "deductibleAmount": 500,
+    "status": "Expired"
+  },
+  {
+    "id": "Q-10203",
+    "customerName": "Omar Al-Dosari",
+    "insuranceCompany": "GIG",
+    "premiumAmount": 3600,
+    "deductibleAmount": 750,
+    "status": "Available"
+  },
+  {
+    "id": "Q-10290",
+    "customerName": "Huda Al-Ghamdi",
+    "insuranceCompany": "Arabian Shield",
+    "premiumAmount": 1500,
+    "deductibleAmount": 200,
+    "status": "Expired"
+  },
+  {
+    "id": "Q-10355",
+    "customerName": "Khalid Al-Shammari",
+    "insuranceCompany": "Tawuniya",
+    "premiumAmount": 5100,
+    "deductibleAmount": 1000,
+    "status": "Available"
+  }
+]
