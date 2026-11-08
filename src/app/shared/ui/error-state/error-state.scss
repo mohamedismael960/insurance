@@ -1,0 +1,9 @@
+@use 'tokens' as *;
+
+:host {
+  display: block;
+  border: 1px solid $dangerBg;
+  border-radius: $radius;
+  background: $dangerBg;
+  padding: 1rem;
+}

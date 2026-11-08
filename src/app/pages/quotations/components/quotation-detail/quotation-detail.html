@@ -1,0 +1,41 @@
+@if (quotation(); as item) {
+  <article class="grid gap-5">
+    <div class="grid gap-1">
+      <p class="text-sm font-semibold text-accent">Pricing</p>
+      <h2 class="text-lg font-semibold">{{ item.customerName }}</h2>
+    </div>
+    <div class="grid gap-3">
+      <div class="rounded-md bg-canvas px-3 py-3">
+        <p class="text-xs text-muted">Premium</p>
+        <p class="mt-1 text-xl font-semibold">
+          <app-money-amount [amount]="item.premiumAmount" />
+        </p>
+      </div>
+      <div class="rounded-md bg-canvas px-3 py-3">
+        <p class="text-xs text-muted">Deductible</p>
+        <p class="mt-1 text-xl font-semibold">
+          <app-money-amount [amount]="item.deductibleAmount" />
+        </p>
+      </div>
+    </div>
+    <dl class="grid gap-3 text-sm">
+      <div class="grid gap-1">
+        <dt class="text-muted">Quotation ID</dt>
+        <dd class="font-medium">{{ item.id }}</dd>
+      </div>
+      <div class="grid gap-1">
+        <dt class="text-muted">Insurance company</dt>
+        <dd class="font-medium">{{ item.insuranceCompany }}</dd>
+      </div>
+      <div class="grid gap-1">
+        <dt class="text-muted">Status</dt>
+        <dd><app-status-badge [status]="item.status" /></dd>
+      </div>
+    </dl>
+  </article>
+} @else {
+  <app-empty-state
+    title="No quotation selected"
+    message="Select a row to review the premium and deductible."
+  />
+}

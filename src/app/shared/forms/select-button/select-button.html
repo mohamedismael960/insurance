@@ -1,0 +1,19 @@
+<div class="grid gap-1.5 text-sm">
+  @if (label()) {
+    <span class="font-medium">{{ label() }}</span>
+  }
+
+  <p-selectbutton
+    [options]="optionList()"
+    optionLabel="label"
+    optionValue="value"
+    [unselectable]="false"
+    [formControl]="control"
+    [ariaLabel]="ariaLabel()"
+    (onChange)="markAsTouched()"
+  />
+
+  @if (hint()) {
+    <p class="text-muted">{{ hint() }}</p>
+  }
+</div>

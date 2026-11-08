@@ -1,0 +1,54 @@
+<main class="mx-auto grid w-full min-w-0 max-w-6xl gap-6 px-4 py-8 lg:px-6">
+  <header class="grid gap-2">
+    <p class="text-sm font-semibold text-accent">Quotation desk</p>
+    <h1 class="text-3xl font-semibold tracking-tight">Insurance quotations</h1>
+    <p class="max-w-2xl text-muted">
+      Find a quotation, check the premium and deductible, and open the record.
+    </p>
+  </header>
+
+  <section
+    class="flex w-full min-w-0 flex-col gap-4 rounded-xl border border-line bg-panel p-4 shadow-panel"
+  >
+    <app-text-input
+      label="Search"
+      type="search"
+      hint="Search by customer name or quotation ID. Type error to simulate an API failure."
+      [formControl]="searchControl"
+    />
+    <app-select-button
+      class="self-start"
+      [options]="statusOptions"
+      ariaLabel="Status"
+      [formControl]="statusControl"
+    />
+  </section>
+
+  <section
+    class="grid w-full min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]"
+    aria-live="polite"
+  >
+    <div class="relative min-h-48 min-w-0 overflow-hidden rounded-xl border border-line bg-panel p-4 shadow-panel">
+      @if (hasError()) {
+        <app-error-state (retry)="retry()" />
+      } @else if (hasLoaded() && rows().length === 0 && !tableLoading()) {
+        <app-empty-state />
+      } @else if (rows().length > 0) {
+        <app-table
+          [config]="tableConfig"
+          [rows]="rows()"
+          [sortField]="'premiumAmount'"
+          [sortOrder]="premiumSort() === 'desc' ? -1 : 1"
+          [activeId]="selectedQuotation()?.id ?? null"
+          (sortChange)="onSort($event)"
+          (rowActivate)="select($event)"
+        />
+      }
+      <app-loader-overlay [scope]="tableScope" />
+    </div>
+
+    <aside class="min-w-0 rounded-xl border border-line bg-panel p-4 shadow-panel" aria-label="Quotation details">
+      <app-quotation-detail [quotation]="selectedQuotation()" />
+    </aside>
+  </section>
+</main>

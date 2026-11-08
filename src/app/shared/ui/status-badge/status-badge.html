@@ -1,0 +1,7 @@
+<span
+  class="badge"
+  [class.available]="status() === 'Available'"
+  [class.expired]="status() === 'Expired'"
+>
+  {{ status() }}
+</span>

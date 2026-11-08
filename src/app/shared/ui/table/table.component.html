@@ -1,0 +1,70 @@
+<div class="table-surface" [attr.aria-busy]="loading()">
+  @if (loading()) {
+    <p-progressbar mode="indeterminate" [showValue]="false" />
+  }
+
+  <p-table
+    [value]="visibleRows()"
+    [dataKey]="config().trackBy"
+    [customSort]="true"
+    [sortField]="sortField()"
+    [sortOrder]="sortOrder()"
+    [tableStyle]="{ width: '100%' }"
+    (onSort)="onSort($event)"
+  >
+    <ng-template #header>
+      <tr>
+        @for (column of config().columns; track column.id) {
+          <th
+            [pSortableColumn]="column.field"
+            [pSortableColumnDisabled]="!column.sortable"
+            [style.min-width]="column.minWidth || null"
+            [class.cell-end]="column.align === 'end'"
+          >
+            <span class="header-label">
+              {{ column.header }}
+              @if (column.sortable) {
+                <p-sortIcon [field]="column.field" />
+              }
+            </span>
+          </th>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-row>
+      <tr
+        tabindex="0"
+        [class.is-active]="isActive(row)"
+        (click)="rowActivate.emit(row)"
+        (keydown.enter)="rowActivate.emit(row)"
+      >
+        @for (column of config().columns; track column.id) {
+          <td [class.cell-end]="column.align === 'end'">
+            @switch (column.type) {
+              @case (cellTypes.Money) {
+                <app-money-amount [amount]="money(row, column)" />
+              }
+              @case (cellTypes.Status) {
+                <app-status-badge [status]="text(row, column)" />
+              }
+              @default {
+                {{ text(row, column) }}
+              }
+            }
+          </td>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td [attr.colspan]="config().columns.length">
+          @if (!loading()) {
+            {{ emptyMessage() }}
+          }
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
